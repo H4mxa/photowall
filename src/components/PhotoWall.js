@@ -5,7 +5,7 @@ const PhotoWall = (props) => {
   return (
     <div className="photogrid">
       {posts.map((post, id) => (
-        <Photo key={id} post={post} />
+        <Photo key={id} post={post} onRemovedPhoto={props.onRemovedPhoto} />
       ))}
     </div>
   );

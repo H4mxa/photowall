@@ -5,11 +5,18 @@ const Photo = (props) => {
   return (
     <figure className="figure">
       <img className="photo" src={post.imageLink} alt={post.description} />
-      <figcaptio>
+      <figcaption>
         <p>{post.description}</p>
-      </figcaptio>
+      </figcaption>
       <div className="button-container">
-        <button className="remove-button">Remove</button>
+        <button
+          className="remove-button"
+          onClick={() => {
+            props.onRemovedPhoto(post);
+          }}
+        >
+          Remove
+        </button>
       </div>
     </figure>
   );
