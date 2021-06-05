@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Title from "./components/Title";
-import PhotoWall from "./components/PhotoWall";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+``;
+import Home from "./Pages/Home";
 
 class App extends Component {
   constructor() {
@@ -29,8 +30,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Title title="Photowall" />
-        <PhotoWall posts={this.state.posts} onRemovedPhoto={this.removePhoto} />
+        <Router>
+          <Switch>
+            <Home posts={this.state.posts} onRemovedPhoto={this.removePhoto} />
+          </Switch>
+        </Router>
       </div>
     );
   }
