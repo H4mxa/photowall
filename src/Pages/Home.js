@@ -1,13 +1,12 @@
 import React from "react";
-import PhotoWall from "../components/PhotoWall";
 import Title from "../components/Title";
+import PhotoWall from "../components/PhotoWall";
 
 const Home = (props) => {
-  const posts = props.posts;
   return (
     <div>
       <Title title="Photowall" />
-      <PhotoWall posts={posts} onRemovedPhoto={props.onRemovedPhoto} />
+      <PhotoWall posts={props.posts} onRemovedPhoto={props.onRemovedPhoto} />
     </div>
   );
 };
