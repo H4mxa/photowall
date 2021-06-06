@@ -3,44 +3,18 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AddPhotoPage from "Pages/AddPhoto";
 import HomePage from "Pages/Home";
 
-import { createStore } from "redux";
-import postReducer from "reducers/index";
+import { Provider } from "react-redux";
+import initStore from "store/index";
 
-const store = createStore(postReducer);
+const store = initStore();
 
-class App extends Component {
-  constructor() {
-    // initialize state of components
-    super();
-
-    this.removePhoto = this.removePhoto.bind(this);
-    this.addPhoto = this.addPhoto.bind(this);
-  }
-
-  removePhoto(postRemoved) {
-    console.log(postRemoved.description);
-    this.setState((state) => ({
-      posts: state.posts.filter((post) => post !== postRemoved),
-    }));
-  }
-
-  addPhoto(postSubmitted) {
-    this.setState((state) => ({
-      posts: state.posts.concat([postSubmitted]),
-    }));
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevState.posts);
-    console.log(this.state);
-  }
-
-  render() {
-    return (
-      <div className="App">
+const App = () => {
+  return (
+    <div className="App">
+      <Provider store={store}>
         <Router>
           <Switch>
-            <Route
+            {/* <Route
               path="/AddPhoto"
               render={({ history }) => (
                 <AddPhotoPage
@@ -50,18 +24,18 @@ class App extends Component {
                   }}
                 />
               )}
-            />
+            /> */}
+            <Route path="/AddPhoto">
+              <AddPhotoPage />
+            </Route>
             <Route path="/">
-              <HomePage
-                posts={this.state.posts}
-                onRemovedPhoto={this.removePhoto}
-              />
+              <HomePage />
             </Route>
           </Switch>
         </Router>
-      </div>
-    );
-  }
-}
+      </Provider>
+    </div>
+  );
+};
 
 export default App;

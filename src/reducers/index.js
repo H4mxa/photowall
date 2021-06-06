@@ -1,7 +1,7 @@
-import posts from "data/posts";
+// import posts from "store";
 
-const postReducer = function posts(state = posts, action) {
-  return state;
-};
+// const postReducer = function posts(state = posts, action) {
+//   return state;
+// };
 
-export default postReducer;
+// export default postReducer;
