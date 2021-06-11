@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import Photo from "./Photo";
 
 const PhotoWall = (props) => {
-  const posts = props.posts;
+  // const posts = props.posts;
   return (
     <div>
       <Link className="addIcon" to="/AddPhoto"></Link>
 
       <div className="photogrid">
-        {posts
+        {props.posts
           .sort((x, y) => {
             return y.id - x.id;
           })
-          .map((post, id) => (
-            <Photo key={id} post={post} onRemovedPhoto={props.onRemovedPhoto} />
+          .map((post, index) => (
+            <Photo key={index} post={post} {...props} index={index} />
           ))}
       </div>
     </div>

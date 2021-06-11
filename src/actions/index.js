@@ -1,3 +1,10 @@
+export const removePost = (index) => {
+  return {
+    type: "REMOVE_POST",
+    index: index,
+  };
+};
+
 export const fetchServices = () => {
   return {
     type: "FETCH_POSTS",

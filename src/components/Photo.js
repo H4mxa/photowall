@@ -12,7 +12,7 @@ const Photo = (props) => {
         <button
           className="remove-button"
           onClick={() => {
-            props.onRemovedPhoto(post);
+            props.removePost(props.index);
           }}
         >
           Remove

@@ -1,7 +1,18 @@
-// import posts from "store";
+const INITIAL_STATE = {
+  items: [],
+};
 
-// const postReducer = function posts(state = posts, action) {
-//   return state;
-// };
+const postReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case "FETCH_POSTS":
+      return { ...state, items: action.posts };
+    case "REMOVE_POST":
+      // console.log(action.index);
+      let gg = state.items;
+      return [...gg.slice(0, action.index)];
+    default:
+      return state;
+  }
+};
 
-// export default postReducer;
+export default postReducer;
